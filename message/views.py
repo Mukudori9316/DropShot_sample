@@ -8,8 +8,8 @@ from .get_member import GetMember
 
 def index(request):
     d = {
-        'messages': Message.objects.all(),
-        'members': Member.objects.all(),
+        "messages": Message.objects.all(),
+        "members": Member.objects.all(),
     }
     return render(request, 'index.html', d)
 
