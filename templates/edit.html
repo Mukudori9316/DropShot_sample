@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block body %}
+<form action="" method="post">
+  <div class="container-fluid">
+    <div class="row"><div class="col-sm-2"><h3 class="text-primary">入力画面</h3></div></div>
+    <div class="row">
+      <div class="col-sm-4">
+        {% bootstrap_label message_form.author.label %}:
+        {% csrf_token %}
+        {% bootstrap_field message_form.author layout='horizontal' show_label=False %}
+      </div>
+    </div>
+    <div class="row">
+          <div class="col-sm-4">
+            {% bootstrap_label message_form.create_for.label %}:
+            {% csrf_token %}
+            {% bootstrap_field message_form.create_for layout='horizontal' show_label=False %}
+          </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8">
+        {% bootstrap_label message_form.message.label %}
+        {% csrf_token %}
+        {% bootstrap_field message_form.message layout='horizontal' show_label=False %}
+      </div>
+    </div>
+    <div class="row" style="margin: 5px;">
+      <input type="submit" class="btn btn-success" value="登録">
+      <a href="{% url 'message:index' %}" style="text-center">一覧へ</a>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

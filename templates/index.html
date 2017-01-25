@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block body %}
+<form action="{% url 'message:delete' %}" method="post">
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"><h2 class="text-info">{{ name }}</h2></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-1">
+      <h3 class="text-info">Message</h3>
+    </div>
+  </div>
+  {% for message in messages %}
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-1">
+      <dl class="well">
+        <dt>
+          <h4 class='text-success'><input type="checkbox" name="delete_ids" value="{{ message.id }}"><small class="text-muted">from&emsp;</small>{{ message.author.name }}</h4>
+        </dt>
+        <dd>{{ message.message }}</dd>
+      </dl>
+    </div>
+  </div>
+  {% endfor %}
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-1">
+      {% csrf_token %}
+      <a href="{% url 'message:add' %}" class="btn btn-info">add</a>
+      <input type="submit" class="btn btn-danger" value="Delete">
+      <!--input type="submit" class="btn" value="AddAll"-->
+    </div>
+  </div>
+
+</form>
+{% endblock %}

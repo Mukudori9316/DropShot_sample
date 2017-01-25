@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load bootstrap3 %}
+<html>
+<head lang="ja">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type='text/css' href="{% static 'css/bootstrap.css' %}" />
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'message:top' %}">Dropshot</a>
+    </div>
+    <div class="navbar-collapse collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a class="active" href="{% url 'message:dropshot' %}">メンバー</a></li>
+        <li><a href="{% url 'message:add' %}">メッセージを送る</a></li>
+        <li><a href="{% url 'message:index' %}">メッセージ一覧</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{% block body %}
+{% endblock %}
+</body>
+</html>

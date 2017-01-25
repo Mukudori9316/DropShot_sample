@@ -1,1 +1,1 @@
-web: gunicorn Drop_Shot.wsgi
+web: python manage.py runserver 0.0.0.0:5000

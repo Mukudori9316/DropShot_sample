@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3"><h1>Drop Shot</h1></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-4">
+      <table class="table table-striped" style="table-layout:fixed;">
+        <thead>
+          <tr>
+            <th class="text-center"><h3>学年</h3></th>
+            <th  class="text-center"><h3>名前</h3></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for member in members %}
+            <tr>
+              <td class="text-center"><h4>{{ member.year }}</h4></td>
+              <td class="text-center"><a href="{% url 'message:get_message' member.id %}"><h4>{{ member.name }}</h4></a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
