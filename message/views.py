@@ -11,7 +11,7 @@ def index(request):
         "messages": Message.objects.all(),
         "members": Member.objects.all(),
     }
-    return render(request, 'index.html', d)
+    return render(request, "index.html", d)
 
 
 def add(request):
