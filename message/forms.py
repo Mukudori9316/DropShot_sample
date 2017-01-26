@@ -1,27 +1,28 @@
 from django import forms
+from . import models
 from .get_member import GetMember
 
 
 class MessageForm(forms.Form):
-    YEAR_CHOICES = GetMember.year_choices
-    NAME_CHOICES = GetMember.name_choices
     message = forms.CharField(
         label='メッセージ',
         max_length=255,
         required=None,
         widget=forms.Textarea(),
     )
-    author = forms.CharField(
+    author = forms.ModelChoiceField(
+        models.Member.objects.values_list('name', flat=True),
+        empty_label='------',
         label='投稿者',
-        max_length=20,
         required=True,
-        widget=forms.Select(choices=NAME_CHOICES),
+        to_field_name="name",
     )
-    create_for = forms.CharField(
-        label='名前',
-        max_length=20,
+    create_for = forms.ModelChoiceField(
+        models.Member.objects.values_list('name', flat=True),
+        empty_label='------',
+        label='相手',
         required=True,
-        widget=forms.Select(choices=NAME_CHOICES)
+        to_field_name="name",
     )
 
 
