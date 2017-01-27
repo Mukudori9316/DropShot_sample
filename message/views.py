@@ -4,6 +4,7 @@ from .models import Message
 from .models import Member
 from .forms import MessageForm, SendForm
 from .get_member import GetMember
+import random
 
 
 def index(request):
@@ -121,3 +122,23 @@ def top(request):
 
 def top2(request):
     return render(request, 'top2.html')
+
+
+def bomb_room(request):
+    return render(request, 'bomb_room.html')
+
+
+def bomb(request):
+    def delete_all():
+        h = Message.objects.all()
+        h.delete()
+        return
+    dice = random.randint(0, 99)
+    if dice < 5:
+        delete_all()
+        d = {'result': u'メッセージを削除しました',
+             'q': False}
+    else:
+        d = {'result': u'不発',
+             'q': True}
+    return render(request, 'bomb.html', d)

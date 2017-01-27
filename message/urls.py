@@ -12,4 +12,6 @@ urlpatterns = [
     url(r'^view/(?P<member_id>\d+)/$', views.get_message, name='get_message'),
     url(r'^top/$', views.top, name='top'),
     url(r'^top2/$', views.top2, name='top2'),
+    url(r'^bomb_room/$', views.bomb_room, name='bomb_room'),
+    url(r'^bomb/$', views.bomb, name='bomb'),
 ]

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block body %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-offset-2 col-md-8"><h2>{{ result }}</h2></div>
+  </div>
+  {% if q %}
+  <div class="row">
+    <div class="col-xs-12 col-md-offset-3 col-md-6">
+      <p><h2>コンティニュー？</h2></p>
+      <ul>
+        <li><a href="{% url 'message:bomb_room' %}"><h3>YES</h3></a></li>
+        <li><a href="{% url 'message:bomb_room' %}"><h3>はい</h3></a></li>
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}
