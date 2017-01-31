@@ -19,7 +19,9 @@
     <div class="col-xs-12 col-md-6 col-md-offset-1">
       <dl class="well">
         <dt>
-          <h4 class='text-success'><input type="checkbox" name="delete_ids" value="{{ message.id }}"><small class="text-muted">from&emsp;</small>{{ message.author.name }}</h4>
+          <h4 class='text-success'><input type="checkbox" name="delete_ids" value="{{ message.id }}">
+            <small class="text-muted">to&emsp;</small>{{ message.create_for.name }}&emsp;<small class="text-muted">from&emsp;{{ message.author.name }}</small>
+          </h4>
         </dt>
         <dd>{{ message.message }}</dd>
       </dl>
